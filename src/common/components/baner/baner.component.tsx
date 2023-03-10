@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { Link, NavLink } from 'react-router-dom'
 import { Container } from '../conteiner/container.component'
 
 interface BanerProps{}
@@ -14,6 +13,3 @@ export const Baner: FC<BanerProps> = () => {
     </div>
   )
 }
-
-
-export default Baner

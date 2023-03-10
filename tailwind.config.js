@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         conduit: {
           green: "#5CB85C",
+          darkGreen: "#3d8b3d",
+          black: "#373a3c",
+          darkGrey: "#999",
+          lightGrey: "#ddd",
         },
       },
       spacing: {

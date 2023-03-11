@@ -8,10 +8,9 @@ interface ArticleProps{}
 export const Article: FC<ArticleProps> = () => {
     return (
         <article>
-            <div className='border-t border-black-10 py-6'>
-                
+            <div className='border-t border-black-10 py-6'>  
                 <div className='mb-4 font-light flex justify-between'>
-                    <div>
+                    <div className='flex align-baseline gap-2'>
                         <Link to='/@Green'>
                             <img
                                 src='https://api.realworld.io/images/demo-avatar.png'
@@ -19,7 +18,7 @@ export const Article: FC<ArticleProps> = () => {
                                 className='inline-block h-8 w-8 rounded-full'
                             />
                         </Link>
-                        <div className='mr-6 ml-[0.3rem] inline-flex flex-col leading-4 '>
+                        <div className='ml-[0.3rem] inline-flex flex-col leading-4 '>
                             <Link className='text-conduit-green font-medium hover:text-conduit-darkGreen hover:underline' to='/@Green'>Micael Green</Link>
                             <span className='text-[#bbb] font-[0.8rem]'>December 9, 2022</span>
                         </div>

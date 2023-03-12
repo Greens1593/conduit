@@ -5,7 +5,7 @@ interface ArticleListProps{}
 
 export const ArticleList: FC<ArticleListProps> = () => { 
     return(
-    <div className='max-w-[75%]'>
+    <div className='tab:max-w-[75%]'>
         <Article />
         <Article />
         <Article />

@@ -5,8 +5,8 @@ interface TagListProps{}
 
 export const TagList: FC<PropsWithChildren <TagListProps>> = () => {
     return (<ul className='flex flex-wrap'>
-        <TagItem tag='qwe' />
-        <TagItem tag='efefef' />
-        <TagItem tag='7892'/>
+        <TagItem background='' color='text-[#aaa]' hover='' tag='qwe' />
+        <TagItem background='' color='text-[#aaa]' hover='' tag='efefef' />
+        <TagItem background='' color='text-[#aaa]' hover='' tag='7892'/>
     </ul>)
 }

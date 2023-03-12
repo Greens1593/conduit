@@ -12,6 +12,8 @@ module.exports = {
           darkGreen: "#3d8b3d",
           black: "#373a3c",
           darkGrey: "#999",
+          brightGrey: "#818a91",
+          hoverGrey: "#687077",
           lightGrey: "#ddd",
         },
       },

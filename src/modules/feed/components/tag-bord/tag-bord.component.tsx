@@ -9,10 +9,10 @@ export const TagBord: FC<PropsWithChildren <TagBordProps>> = () => {
         <ul className='flex flex-wrap gap-x-[3px] gap-y-[0.2rem]'>
             <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='qwe' />
             <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='efefef' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='7892' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='7892' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='7892' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='7892'/>
+            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='sefegrgrhrh' />
+            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='sffege' />
+            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='tyukhbn' />
+            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='dgrrhyjty'/>
         </ul>
     </div>)
 }

@@ -1,20 +1,22 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
+import { FeedArticle } from '../../api/dto/global-feed.in'
 import { FavoriteButton } from '../favorite-button/favorite-button.component'
 import { TagList } from '../tag-list/tag-list.component'
 
-interface ArticleProps{}
+interface ArticleProps extends FeedArticle{
+}
 
-export const Article: FC<ArticleProps> = () => {
+export const Article: FC<ArticleProps> = ({author}) => {
     return (
         <article>
             <div className='border-t border-black-10 py-6'>  
                 <div className='mb-4 font-light flex justify-between'>
                     <div className='flex align-baseline gap-2'>
-                        <Link to='/@Green'>
+                        <Link to={`/@${author.username}`}>
                             <img
-                                src='https://api.realworld.io/images/demo-avatar.png'
-                                alt='avatar'
+                                src={author.image}
+                                alt={author.username}
                                 className='inline-block h-8 w-8 rounded-full'
                             />
                         </Link>

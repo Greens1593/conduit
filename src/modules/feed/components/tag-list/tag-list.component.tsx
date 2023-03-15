@@ -1,12 +1,12 @@
 import { FC, PropsWithChildren } from 'react'
 import { TagItem } from './tag-item.component'
 
-interface TagListProps{}
+interface TagListProps{
+    tagList: string[]
+}
 
-export const TagList: FC<PropsWithChildren <TagListProps>> = () => {
+export const TagList: FC<PropsWithChildren <TagListProps>> = ({tagList}) => {
     return (<ul className='flex flex-wrap'>
-        <TagItem background='' color='text-[#aaa]' hover='' tag='qwe' />
-        <TagItem background='' color='text-[#aaa]' hover='' tag='efefef' />
-        <TagItem background='' color='text-[#aaa]' hover='' tag='7892'/>
+        {tagList.map((tag, index) => (<TagItem key={index} tag={tag} background='' color='text-[#aaa]' hover=''/>))}
     </ul>)
 }

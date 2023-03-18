@@ -7,10 +7,10 @@ interface ArticleListProps{
 }
 
 export const ArticleList: FC<ArticleListProps> = ({list}) => { 
-    return(
-    <div className='tab:max-w-[75%]'>
-            {list.map((article) => <Article
-                key={article.createdAt}
+    return (
+    <div>
+            {list.map((article, index) => <Article
+                key={index}
                 author={article.author}
                 title={article.title}
                 description={article.description}

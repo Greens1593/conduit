@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { FeedArticle } from '../../api/dto/global-feed.in'
@@ -7,14 +8,15 @@ import { TagList } from '../tag-list/tag-list.component'
 interface ArticleProps extends FeedArticle{
 }
 
-export const Article: FC<ArticleProps> = ({author, createdAt, favorited, favoritesCount, tagList, title, description}) => {
+export const Article: FC<ArticleProps> = ({
+    author,
+    createdAt,
+    favorited,
+    favoritesCount,
+    tagList,
+    title,
+    description }) => {
     
-    const formattedDate = new Date(createdAt).toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    timeZone: 'UTC',
-  });
 
     return (
         <article>
@@ -30,7 +32,7 @@ export const Article: FC<ArticleProps> = ({author, createdAt, favorited, favorit
                         </Link>
                         <div className='ml-[0.3rem] inline-flex flex-col leading-4 '>
                             <Link className='text-conduit-green font-medium hover:text-conduit-darkGreen hover:underline' to='/@Green'>{author.username}</Link>
-                            <span className='text-[#bbb] font-[0.8rem]'>{formattedDate}</span>
+                            <span className='text-[#bbb] font-[0.8rem]'>{DateTime.fromISO(createdAt).toLocaleString(DateTime.DATETIME_MED)}</span>
                         </div>
                     </div>
                     <FavoriteButton

@@ -15,6 +15,7 @@ module.exports = {
           brightGrey: "#818a91",
           hoverGrey: "#687077",
           lightGrey: "#ddd",
+          pageHoverBg: "#eceeef",
         },
       },
       spacing: {

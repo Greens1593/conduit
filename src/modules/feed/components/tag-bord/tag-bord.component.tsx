@@ -1,18 +1,20 @@
 import { FC, PropsWithChildren } from 'react'
+import { Container } from '../../../../common/components/conteiner/container.component'
+import { useGetPopularTagsQuery } from '../../api/repository'
 import { TagItem } from '../tag-list/tag-item.component'
 
 interface TagBordProps{}
 
 export const TagBord: FC<PropsWithChildren <TagBordProps>> = () => {
-    return (<div className='pt-[5px] pr-2.5 pb-2.5 pl-2.5 bg-[#f3f3f3] rounded-[4px] h-max tab:max-w-[25%] '>
+    const {data, error, isLoading, isFetching} = useGetPopularTagsQuery('')
+    
+    if (isLoading || isFetching) return <Container>Tags loading...</Container>
+    if (error) return <Container>Error while loading tags</Container>
+
+    return (<div className='p-3 pt-1.5 bg-[#f3f3f3] rounded-[4px] h-max tab:max-w-[25%] mb-10'>
         <p className='mb-1'>Popular Tags</p>
         <ul className='flex flex-wrap gap-x-[3px] gap-y-[0.2rem]'>
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='qwe' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='efefef' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='sefegrgrhrh' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='sffege' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='tyukhbn' />
-            <TagItem background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag='dgrrhyjty'/>
+            {data.tags.map((tag: string, index: any) => <TagItem key={index} active={true} background='bg-conduit-brightGrey' color='text-[#fff]' hover='hover:bg-conduit-hoverGrey' tag={tag} />)}
         </ul>
     </div>)
 }

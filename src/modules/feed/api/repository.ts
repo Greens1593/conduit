@@ -16,14 +16,18 @@ export const feedApi = createApi({
         getGlobalFeed: builder.query<GlobalFeedIn, GlobalFeedParams>({
             query: ({page}) => ({
                 url: 'articles',
-                method: 'GET',
                 params: {
                     limit: FEED_PAGE_SIZE,
                     offset: page * FEED_PAGE_SIZE
                 }
-            })
-        })
+            }),
+        }),
+        getPopularTags: builder.query({
+                query: () => ({
+                    url: '/tags'
+                }),
+        }),
     })
 })
 
-export const { useGetGlobalFeedQuery } = feedApi;
+export const { useGetGlobalFeedQuery, useGetPopularTagsQuery } = feedApi;

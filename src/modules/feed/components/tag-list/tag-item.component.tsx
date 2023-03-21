@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 interface TagItemProps{
     tag: string,
@@ -10,7 +10,10 @@ interface TagItemProps{
 }
 
 export const TagItem: FC<TagItemProps> = ({tag, background, color, hover, active}) => {
-    return (<li className={`${color} ${background} ${hover} font-light text-[0.8rem] border-conduit-lightGrey border-[1px] mr-1 mb-[0.2rem] px-[0.6rem] rounded-[10rem] cursor-pointer`}>
+    const [searchParams] = useSearchParams()
+    const activeTag = searchParams.get('tag')
+
+    return (<li className={`${color} ${background} ${hover} ${activeTag === tag && active && 'bg-conduit-hoverGrey underline'} font-light text-[0.8rem] border-conduit-lightGrey border-[1px] mr-1 mb-[0.2rem] px-[0.6rem] rounded-[10rem] cursor-pointer`}>
         {active && <Link to={`/?tag=${tag}`}>{tag}</Link>}
         {!active && tag}
     </li>)

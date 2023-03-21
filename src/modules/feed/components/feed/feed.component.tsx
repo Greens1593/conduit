@@ -15,7 +15,10 @@ interface FeedProps{ }
 export const Feed: FC<FeedProps> = () => { 
     const [searchParams, setSearchParams] = useSearchParams()
     const [page, setPage] = useState(searchParams.get('page') ? Number(searchParams.get('page')) : 0) 
-    const { data, error, isLoading, isFetching } = useGetGlobalFeedQuery({page})
+    const { data, error, isLoading, isFetching } = useGetGlobalFeedQuery({
+        page,
+        tag: searchParams.get('tag'),
+    })
 
     if (isLoading || isFetching) return <Container>Feed loading...</Container>
     if (error) return <Container>Error while loading feed</Container>
@@ -28,8 +31,8 @@ export const Feed: FC<FeedProps> = () => {
 
     return <Container>
             <FeedToggle/>
-            <div className='flex flex-col tab:flex-row gap-[30px]'>
-                <div className='tab:max-w-[75%]'>
+            <div className='flex flex-col tab:flex-row gap-[30px] pb-16'>
+                <div className='tab:w-[75%]'>
                     <ArticleList list={data?.articles || []} />
                     <nav className='my-6'>
                         <ReactPaginate

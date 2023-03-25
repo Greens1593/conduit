@@ -1,17 +1,19 @@
-import {FC} from 'react'
-import {Baner} from './common/components/baner/baner.component'
+import { FC } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import { Header } from './common/components/header/header.component'
-import { Feed } from './modules/feed/components/feed/feed.component'
-
+import { GlobalFeedPage } from './modules/feed/pages/global-feed.page'
+import { ProfilePage } from './modules/profile/pages/profile.page'
 interface AppProps{}
 
 export const App: FC<AppProps> = () => {
   return (
-    <div>
+    <div className='pb-16'>
       <Header />
       <main>
-        <Baner />
-        <Feed/>
+        <Routes>
+          <Route path='/' element={<GlobalFeedPage />} />
+          <Route path="/@:profile" element={<ProfilePage />} />
+        </Routes>
       </main>
     </div>
   )

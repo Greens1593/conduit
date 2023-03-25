@@ -17,7 +17,7 @@ export const Article: FC<ArticleProps> = ({
     title,
     description }) => {
     
-
+    
     return (
         <article>
             <div className='border-t border-black-10 py-6'>  
@@ -31,7 +31,12 @@ export const Article: FC<ArticleProps> = ({
                             />
                         </Link>
                         <div className='ml-[0.3rem] inline-flex flex-col leading-4 '>
-                            <Link className='text-conduit-green font-medium hover:text-conduit-darkGreen hover:underline' to='/@Green'>{author.username}</Link>
+                            <Link 
+                                className='text-conduit-green font-medium hover:text-conduit-darkGreen hover:underline' 
+                                to={`/@${author.username}`}
+                            >
+                                    {author.username}
+                            </Link>
                             <span className='text-[#bbb] font-[0.8rem]'>{DateTime.fromISO(createdAt).toLocaleString(DateTime.DATETIME_MED)}</span>
                         </div>
                     </div>

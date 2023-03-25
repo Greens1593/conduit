@@ -31,7 +31,7 @@ export const Feed: FC<FeedProps> = () => {
 
     return <Container>
             <FeedToggle/>
-            <div className='flex flex-col tab:flex-row gap-[30px] pb-16'>
+            <div className='flex flex-col tab:flex-row gap-[30px]'>
                 <div className='tab:w-[75%]'>
                     <ArticleList list={data?.articles || []} />
                     <nav className='my-6'>

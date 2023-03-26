@@ -12,7 +12,7 @@ export const App: FC<AppProps> = () => {
       <main>
         <Routes>
           <Route path='/' element={<GlobalFeedPage />} />
-          <Route path="/@:profile" element={<ProfilePage />} />
+          <Route path=":username" element={<ProfilePage />} />
         </Routes>
       </main>
     </div>

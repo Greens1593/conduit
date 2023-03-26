@@ -1,14 +1,12 @@
 import { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { ProfileBanner } from '../components/profile-banner/profile-banner';
 
 interface ProfilePageProps {}
 
 export const ProfilePage: FC<ProfilePageProps> = () => {
-  const { username } = useParams<{ username: string }>();
-
   return (
-      <div>
-        This is profile for {username}
-      </div>
+      <>
+        <ProfileBanner/>       
+      </>
   );
 };

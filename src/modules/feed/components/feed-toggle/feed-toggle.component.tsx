@@ -8,7 +8,7 @@ export const FeedToggle: FC<FeedToggleProps> = () => {
     const tag = searchParams.get('tag')
     return(
         <ul className='flex'>
-            <li className={`inline-block text-conduit-green bg-white border-b-2 border-b-conduit-green ${tag && 'text-conduit-disable hover:text-[#555] border-none'} py-2 px-4`}>
+            <li className={`inline-block text-conduit-green bg-white border-b-2 border-b-conduit-green ${tag && 'text-conduit-gray-600 hover:text-[#555] border-none'} py-2 px-4`}>
                 <NavLink
                     to='/'
                     >

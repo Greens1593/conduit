@@ -37,7 +37,7 @@ export const Article: FC<ArticleProps> = ({
                             >
                                     {author.username}
                             </Link>
-                            <span className='text-[#bbb] font-[0.8rem]'>{DateTime.fromISO(createdAt).toLocaleString(DateTime.DATETIME_MED)}</span>
+                            <span className='text-conduit-gray-500 font-[0.8rem]'>{DateTime.fromISO(createdAt).toLocaleString(DateTime.DATETIME_MED)}</span>
                         </div>
                     </div>
                     <FavoriteButton
@@ -46,10 +46,10 @@ export const Article: FC<ArticleProps> = ({
                     />
                 </div>
                 <Link to='/article/qwery'>
-                    <h1 className='mb-[3px] font-semibold text-2xl text-conduit-black'>{title}</h1>
-                    <p className='text-conduit-darkGrey font-light mb-4 '>{description}</p>
+                    <h1 className='mb-[3px] font-semibold text-2xl text-conduit-gray-1000'>{title}</h1>
+                    <p className='text-conduit-gray-700 font-light mb-4 '>{description}</p>
                     <div className='flex justify-between'>
-                        <span className='text-[0.8rem] text-conduit-darkGrey font-light'>Read more...</span>
+                        <span className='text-[0.8rem] text-conduit-gray-700 font-light'>Read more...</span>
                         <TagList
                             tagList={tagList}
                         />

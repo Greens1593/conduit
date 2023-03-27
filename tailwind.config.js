@@ -8,15 +8,22 @@ module.exports = {
       },
       colors: {
         conduit: {
+          gray: {
+            100: "#f3f3f3",
+            200: "#eceeef",
+            300: "#ddd",
+            400: "#ccc",
+            500: "#bbb",
+            600: "#aaa",
+            650: "#a1a1a1",
+            700: "#999",
+            800: "#818a91",
+            900: "#687077",
+            1000: "#373a3c",
+          },
+
           green: "#5CB85C",
           darkGreen: "#3d8b3d",
-          black: "#373a3c",
-          darkGrey: "#999",
-          brightGrey: "#818a91",
-          hoverGrey: "#687077",
-          lightGrey: "#ddd",
-          pageHoverBg: "#eceeef",
-          disable: "#aaa",
         },
       },
       spacing: {

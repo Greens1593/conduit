@@ -10,7 +10,7 @@ interface FollowButtonProps {
 export const FollowButton: FC<FollowButtonProps> = ({isActive, icon, text}) => {
     const buttonClasses = isActive
     ? 'bg-green-500 hover:bg-green-600 text-white'
-    : 'bg-transparent hover:bg-[#ccc] text-conduit-darkGrey border border-conduit-darkGrey';
+    : 'bg-transparent hover:bg-conduit-gray-400 text-conduit-gray-700 border border-conduit-gray-700';
 
   return (
     <button

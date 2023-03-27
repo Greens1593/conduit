@@ -7,7 +7,7 @@ interface ProfileBannerProps {}
 export const ProfileBanner: FC<ProfileBannerProps> = () => {
 
   return (
-      <div className='bg-[#f3f3f3] pt-8 pb-4'>
+      <div className='bg-conduit-gray-100 pt-8 pb-4'>
           <Container>
               <img
                   className='w-24 h-24 rounded-full mb-4 mx-auto'
@@ -18,7 +18,7 @@ export const ProfileBanner: FC<ProfileBannerProps> = () => {
               <div className='flex justify-end'>
                 <FollowButton
                   text='Follow user'
-                  icon={<i className='ion-plus'></i>}
+                  icon={<i className='ion-plus-round' />}
                   isActive={false}          
                   />
                </div>

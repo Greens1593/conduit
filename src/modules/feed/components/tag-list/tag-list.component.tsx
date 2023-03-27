@@ -7,6 +7,6 @@ interface TagListProps{
 
 export const TagList: FC<PropsWithChildren <TagListProps>> = ({tagList}) => {
     return (<ul className='flex flex-wrap'>
-        {tagList.map((tag, index) => (<TagItem key={index} active={false} tag={tag} background='' color='text-[#aaa]' hover=''/>))}
+        {tagList.map((tag, index) => (<TagItem key={index} active={false} tag={tag} background='' color='text-conduit-gray-600' hover=''/>))}
     </ul>)
 }

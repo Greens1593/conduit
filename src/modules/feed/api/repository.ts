@@ -1,12 +1,17 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { FEED_PAGE_SIZE } from '../../../const';
 import { axiosBaseQuery } from '../../../core/axios-base-query'
-import { GlobalFeedInDTO } from './dto/global-feed.in';
+import { FeedArticle, GlobalFeedInDTO } from './dto/global-feed.in';
 import { PopularTagsInDto } from './dto/popular-tags.in';
 
 interface GlobalFeedParams {
     page: number,
     tag: string | null,
+}
+
+export interface FeedData{
+    articles: FeedArticle[];
+    articlesCount: number;
 }
 
 export const feedApi = createApi({
@@ -24,6 +29,12 @@ export const feedApi = createApi({
                     tag
                 }
             }),
+            transformResponse: (response: GlobalFeedInDTO) => {
+                return {
+                    articles: response.articles || [],
+                    articlesCount: response.articlesCount || 0
+                }
+            }
         }),
         getPopularTags: builder.query<PopularTagsInDto, any>({
                 query: () => ({

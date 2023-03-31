@@ -1,11 +1,12 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import ReactPaginate from 'react-paginate'
-import { useSearchParams } from 'react-router-dom'
+
 
 import { Container } from '../../../../common/components/conteiner/container.component'
 import { FEED_PAGE_SIZE } from '../../../../const'
 import { serializeSearchParams } from '../../../../utils/router'
 import { FeedData } from '../../api/repository'
+import { usePageParams } from '../../hooks/use-page-params.hook'
 import { ArticleList } from '../article-list/article-list.component'
 import { FeedToggle } from '../feed-toggle/feed-toggle.component'
 import { TagBord } from '../tag-bord/tag-bord.component'
@@ -20,14 +21,13 @@ interface FeedProps{
 export const Feed: FC<FeedProps> = ({isLoading, isFetching, error, data}) => { 
     
 
-    const [searchParams, setSearchParams] = useSearchParams()
-    const page = searchParams.get('page') ? Number(searchParams.get('page')) : 0
+    const {page, setPage} = usePageParams()
    
     if (isLoading || isFetching) return <Container>Feed loading...</Container>
     if (error) return <Container>Error while loading feed</Container>
 
     const handlePageChange = ({ selected }: { selected: number }) => {
-        setSearchParams(serializeSearchParams({page: String(selected)}))
+        setPage(selected)
         window.scrollTo(0, 0)
     }
 

@@ -12,7 +12,7 @@ export const TagBord: FC<PropsWithChildren <TagBordProps>> = () => {
     if (isLoading || isFetching) return <Container>Tags loading...</Container>
     if (error) return <Container>Error while loading tags</Container>
 
-    return (<div className='p-3 pt-1.5 bg-[#f3f3f3] rounded-[4px] h-max tab:max-w-[25%]'>
+    return (<div className='p-3 pt-1.5 bg-conduit-gray-100 rounded-[4px] h-max tab:max-w-[25%]'>
         <p className='mb-1'>Popular Tags</p>
         <ul className='flex flex-wrap'>
             {data!.tags.map((tag: string, index: any) => <TagItem key={index} active={true} background='bg-conduit-gray-800' color='text-[#fff]' hover='hover:bg-conduit-gray-900' tag={tag} />)}

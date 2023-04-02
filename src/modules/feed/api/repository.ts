@@ -18,7 +18,7 @@ export interface FeedData {
 }
 
 interface ProfileFeedParams extends BaseFeedParams{
-    author: string
+    author?: string
 }
 
 export const feedApi = createApi({

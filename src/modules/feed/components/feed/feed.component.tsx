@@ -2,9 +2,7 @@ import { FC } from 'react'
 import ReactPaginate from 'react-paginate'
 
 
-import { Container } from '../../../../common/components/conteiner/container.component'
 import { FEED_PAGE_SIZE } from '../../../../const'
-import { serializeSearchParams } from '../../../../utils/router'
 import { FeedData } from '../../api/repository'
 import { usePageParams } from '../../hooks/use-page-params.hook'
 import { ArticleList } from '../article-list/article-list.component'
@@ -23,18 +21,16 @@ export const Feed: FC<FeedProps> = ({isLoading, isFetching, error, data}) => {
 
     const {page, setPage} = usePageParams()
    
-    if (isLoading || isFetching) return <Container>Feed loading...</Container>
-    if (error) return <Container>Error while loading feed</Container>
+    if (isLoading || isFetching) return <p>Feed loading...</p>
+    if (error) return <p>Error while loading feed</p>
 
     const handlePageChange = ({ selected }: { selected: number }) => {
         setPage(selected)
         window.scrollTo(0, 0)
     }
 
-    return <Container>
-            <FeedToggle/>
-            <div className='flex flex-col tab:flex-row gap-[30px]'>
-                <div className='tab:w-[75%]'>
+    return <>
+                <>
                     <ArticleList list={data?.articles || []} />
                     <nav className='my-6'>
                         <ReactPaginate
@@ -51,8 +47,6 @@ export const Feed: FC<FeedProps> = ({isLoading, isFetching, error, data}) => {
                             forcePage={page}
                             /> 
                     </nav>    
-                </div>
-                <TagBord />
-            </div>      
-    </Container>
+                </>     
+    </>
 }

@@ -1,21 +1,37 @@
 import { FC } from 'react'
 import { NavLink, useSearchParams } from 'react-router-dom'
 
-interface FeedToggleProps{ }
+interface FeedToggleItem{
+    text: string,
+    link: string
+}
 
-export const FeedToggle: FC<FeedToggleProps> = () => {
+interface FeedToggleProps{ 
+    defaultText?: string,
+    defaultLink?: string,
+    items?: FeedToggleItem[]
+}
+
+export const FeedToggle: FC<FeedToggleProps> = ({defaultText = 'Global Feed', defaultLink = '/', items=[]}) => {
     const [searchParams] = useSearchParams()
     const tag = searchParams.get('tag')
+    const globalFeedClasses = `inline-block text-conduit-green bg-white border-b-2 border-b-conduit-green py-2 px-4`
+    
     return(
         <ul className='flex'>
-            <li className={`inline-block text-conduit-green bg-white border-b-2 border-b-conduit-green ${tag && 'text-conduit-gray-600 hover:text-[#555] border-none'} py-2 px-4`}>
+            <li className={`${globalFeedClasses} ${tag && 'text-conduit-gray-600 hover:text-[#555] border-none'} `}>
                 <NavLink
-                    to='/'
+                    to={defaultLink}
                     >
-                        Global Feed
+                        {defaultText}
                 </NavLink>
             </li>
-            <li className='inline-block text-conduit-green bg-white border-b-2 border-b-conduit-green py-2 px-4'>
+            {items.map((item) => (
+                <li className={`${globalFeedClasses} ${!item.link  && 'hidden'}`}>
+                    <NavLink to={item.link}>{item.text}</NavLink>    
+                </li>  
+            ))}
+            <li className={`${globalFeedClasses} ${!tag  && 'hidden'}`}>
                 {tag && <p className='flex gap-1'>
                    <b className='text-xl'>#</b> {`${tag}`}
                 </p>}

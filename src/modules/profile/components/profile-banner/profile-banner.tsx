@@ -9,7 +9,7 @@ interface ProfileBannerProps {
 export const ProfileBanner: FC<ProfileBannerProps> = ({userName}) => {
 
   return (
-      <div className='bg-conduit-gray-100 pt-8 pb-4 mb-6'>
+      <div className='bg-conduit-gray-100 pt-8 pb-4 mb-8'>
           <Container>
               <img
                   className='w-24 h-24 rounded-full mb-4 mx-auto'

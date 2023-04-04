@@ -20,7 +20,7 @@ export const ProfilePage: FC<ProfilePageProps> = () => {
     author
   })
 
-  const feedToggleItems = [{text: 'Favorited articles', link: `${location.pathname}/favorites`}]
+  const feedToggleItems = [{ text: 'Favorited articles', link: `${location.pathname}/favorites`}]
  
   return (
       <>

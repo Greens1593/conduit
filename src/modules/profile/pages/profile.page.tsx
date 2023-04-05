@@ -17,18 +17,19 @@ export const ProfilePage: FC<ProfilePageProps> = () => {
 
   const {data, isLoading, isFetching, error} = useGetProfileFeedQuery({
     page,
-    author
+    author: author!,
+    isFavorite: location.pathname.includes('favorites')
   })
 
   const feedToggleItems = [{ text: 'Favorited articles', link: `${location.pathname}/favorites`}]
- 
+
   return (
       <>
         <ProfileBanner userName={author} />
         <Container>
         <FeedToggle
           defaultText='My articles'
-          defaultLink={location.pathname}
+          defaultLink={`/${profile}`}
           items={feedToggleItems}
         />
         <Feed

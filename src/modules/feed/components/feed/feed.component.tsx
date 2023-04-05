@@ -6,8 +6,7 @@ import { FEED_PAGE_SIZE } from '../../../../const'
 import { FeedData } from '../../api/repository'
 import { usePageParams } from '../../hooks/use-page-params.hook'
 import { ArticleList } from '../article-list/article-list.component'
-import { FeedToggle } from '../feed-toggle/feed-toggle.component'
-import { TagBord } from '../tag-bord/tag-bord.component'
+
 
 interface FeedProps{ 
     isLoading: boolean,
@@ -21,9 +20,10 @@ export const Feed: FC<FeedProps> = ({isLoading, isFetching, error, data}) => {
 
     const {page, setPage} = usePageParams()
    
-    if (isLoading || isFetching) return <p>Feed loading...</p>
-    if (error) return <p>Error while loading feed</p>
-
+    if (isLoading || isFetching) return <p className='mt-6'>Feed loading...</p>
+    if (error) return <p className='mt-6'>Error while loading feed</p>
+    if(data?.articlesCount === 0) return <p className='mt-6'>No articles are here ... yet</p>
+    
     const handlePageChange = ({ selected }: { selected: number }) => {
         setPage(selected)
         window.scrollTo(0, 0)
